@@ -12,7 +12,7 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<h1>Acquire envelope photo</h1>
+			<h1>GPI - Acquire envelope photo</h1>
 			<div className="d-grid gap-2 mx-auto col-6">
 				<label className="btn btn-secondary btn-lg">
 					<i className="fa fa-image"></i> Acquire
