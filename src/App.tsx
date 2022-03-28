@@ -16,6 +16,7 @@ export default function App() {
 
 			if (c) {
 				const ctx = c.getContext('2d');
+
 				const img = new Image();
 
 				img.onload = function () {
@@ -30,7 +31,11 @@ export default function App() {
 					}
 					c.width = newWidth;
 					c.height = newHeight;
-					if (ctx) ctx.drawImage(img, 0, 0, newWidth, newHeight);
+					if (ctx) {
+						//ctx.imageSmoothingEnabled = false;
+						//ctx.imageSmoothingQuality = 'low';
+						ctx.drawImage(img, 0, 0, newWidth, newHeight);
+					}
 					c.toBlob(
 						(res) => {
 							console.log('Blob resized: ', res);
