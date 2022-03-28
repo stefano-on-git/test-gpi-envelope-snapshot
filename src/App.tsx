@@ -111,7 +111,7 @@ export default function App() {
           </div>
           <div className="row justify-content-center">
             <div className="col">
-              <canvas></canvas>
+              <canvas style={{width: '100%', height: 'auto'}}></canvas>
             </div>
           </div>
         </div>
