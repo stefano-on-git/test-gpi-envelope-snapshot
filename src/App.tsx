@@ -111,7 +111,7 @@ export default function App() {
           </div>
           <div className="row justify-content-center">
             <div className="col">
-              <canvas style={{ display: "none" }}></canvas>
+              <canvas></canvas>
             </div>
           </div>
         </div>
