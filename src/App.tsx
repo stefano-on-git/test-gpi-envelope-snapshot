@@ -13,7 +13,8 @@ export default function App() {
 			const resize = async () => {
 				const resizedImg = await new ImageResize({
 					format: 'jpg',
-					width: 800
+					width: 800,
+					quality: 0.8
 				}).play(imgFile);
 				console.log(resizedImg);
 				setImgDataUrlResized(resizedImg);
