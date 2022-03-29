@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// @ts-ignore
 import ImageResize from 'image-resize';
 import { formatBytes } from './Utilities';
 import './styles.css';
