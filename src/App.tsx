@@ -89,7 +89,11 @@ export default function App() {
                   <p className="card-text" style={{ lineHeight: "250%" }}>
                     Size:&nbsp;
                     <mark className="p-1">
-                      {formatBytes(imgFileResized?.size!, 2)} (original size{" "}
+                      {formatBytes(imgFileResized?.size!, 2)}
+                    </mark>
+                    <br />
+                    Original size:&nbsp;
+                    <mark className="p-1">
                       {formatBytes(imgFile?.size!, 2)})
                     </mark>
                   </p>
