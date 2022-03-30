@@ -32,23 +32,37 @@ export default function App() {
   useEffect(() => {
     if (imgFile) {
       console.log("Original img file: ", imgFile);
-      const resize = async () => {
-        const resizedImg: string = await new ImageResize({
-          format: "jpg",
-          width: 400,
-          height: 800,
-          quality: 0.8
-        }).play(imgFile);
-        console.log(resizedImg);
-        setImgDataUrlResized(resizedImg);
-        setImgFileresized(
-          b64toBlob(
-            resizedImg.replace("data:image/jpeg;base64,", ""),
-            "image/jpeg"
-          )
-        );
+      // we read the acquired img file to obtain the aspect ratio
+      // if portrait then resize aspect ratio acts on height
+      // otherwise on width (default behavior)
+      const reader = new FileReader();
+      reader.readAsDataURL(imgFile);
+      reader.onloadend = function () {
+        let img = new Image();
+        img.src = reader.result as string;
+        img.onload = () => {
+          let newH: Number | null = null;
+          if (img.height > img.width) newH = 800;
+          const resize = async () => {
+            const resizedImg: string = await new ImageResize({
+              format: "jpg",
+              width: 800,
+              height: newH, // if null, resize aspect ratio acts on width
+              quality: 0.8
+            }).play(imgFile);
+            console.log(resizedImg);
+            setImgDataUrlResized(resizedImg);
+            // blob resized img to obtain kb and type info
+            setImgFileresized(
+              b64toBlob(
+                resizedImg.replace("data:image/jpeg;base64,", ""),
+                "image/jpeg"
+              )
+            );
+          };
+          resize();
+        };
       };
-      resize();
     }
   }, [imgFile]);
 
