@@ -88,7 +88,7 @@ export default function App() {
                     <br />
                     Original size:&nbsp;
                     <mark className="p-1">
-                      {formatBytes(imgFile?.size!, 2)})
+                      {formatBytes(imgFile?.size!, 2)}
                     </mark>
                   </p>
                 </div>
